@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SURE AR Physics Application</title>
+    <link rel="stylesheet" type="text/css" href="main_page_style.css" />
+</head>
+
+<body>
+    <div class="content">
+        <div class="sidenav">
+            <div class="img_container">
+                <img src="https://www.marshall.edu/brandguide/files/2021/05/mu-primary-logo.png">
+            </div>
+            <h1 style="color:#00AC3E; font-size: 2em; width: 95%; padding: 0px 5% 0px 5%;" align="center">Joshua Maddy</h1>
+            <div class="links">
+                <a href="#about">About</a>
+                <a href="#abstract">Abstract</a>
+                <a href="#weekly_reports">Reports</a>
+                <a href="#resource">Resources</a>
+            </div>
+        </div>
+
+        <div class="main">
+            <section id="title">
+                <h1 style="margin: 0; margin-top:4%; text-align: center;">
+                    AR Based Physics Application for Education
+                </h1>
+                <h3 style="margin: 0; text-align: center; color: rgb(95, 95, 95);">
+                    <em>Best viewed on desktop</em>
+                </h3>
+            </section>
+
+            <section id="about">
+                <h2>About The Author</h2>
+                <p>My name is Joshua Maddy and I am a third year Computer Science major here at Marshall University.
+                    I have strong interests in pedagogical tools, AR/VR, and application development in general.
+                    If you have any questions, feel free to contact me at maddy15@marshall.edu.</p>
+
+            </section>
+            <hr>
+
+            <section id="abstract">
+                <h2>Abstract</h2>
+                <p>
+                    Introductory Physics classes are often considered some of the most challenging offerings for
+                    students not focused in the sciences, and even for those studying in other scientific fields. This
+                    demographic of students greatly benefits from tools designed to help visualize common physics
+                    problems, which is frequently a suite of tools provided in a guided lab environment. The issue with
+                    lab focused physics curricula is the prohibitive cost of equipment. We aim to cut down on barrier to
+                    entry by providing an alternative experience - an augmented reality focused application for
+                    simulating and modifying common lab systems. The application is proposed as a packaged, portable
+                    experience capable of running on medium-spec portable hardware.
+                </p>
+
+            </section>
+
+            <hr>
+
+            <section id="weekly_reports">
+                <h2>Reports</h2>
+
+                <div class="update update_one">
+                    <h3>Update One</h3>
+                    <p>
+                        Initially I worked on creating a live simulation program that could take user input and
+                        translate it to object interactions, like applying a force to an object, or changing the
+                        coefficient of friction live.
+                        This ended up being very unpredictable, most likely due to my poor understanding of the Unity
+                        engine's core loop.
+                        Below is an example of this test simulation.
+                    </p>
+
+                    <div class="simulation_examples">
+                        <img src="imgs\week_one\SlideAnimation.gif"
+                            alt="Live time simulation of a cube being boosted across surfaces of different frictional coefficients.">
+                    </div>
+
+                    <p>
+                        I ultimately decided that predetermined simulations with initial variables would be easier to
+                        implement and more accurate,
+                        so I decided to create three example simulations. All three are shown below. From left to right:
+                        the launcher,
+                        the energy ramp, and the velocity ramp. I also created a graph mesh display, shown in the
+                        background of each example,
+                        that will be discussed next.
+                    </p>
+
+                    <div class="simulation_examples">
+                        <img src="imgs\week_one\simulation_examples\LaunchAnimation.gif" alt="">
+                        <img src="imgs\week_one\simulation_examples\EnergyAnimation.gif" alt="">
+                        <img src="imgs\week_one\simulation_examples\RampAnimation2.gif" alt="">
+                    </div>
+
+                    <p>
+                        The last thing I did for this first update is write a custom graph mesh display. In summary, I
+                        provide the script with a series
+                        of points. These points are then either resampled down to an acceptable number, or fed directly
+                        into a mesh creator.
+                        The mesh of the graph is scaled to a desired bounding box and then displayed. I found that the
+                        performance was great, but later
+                        I would end up favoring a different graphing method.
+                    </p>
+                </div>
+
+                <hr class='dotted' />
+
+                <div class="update update_two">
+                    <h3>Update Two</h3>
+                    <p>
+                        The second update focused on the user interface, primarily the concept of reactive design. As
+                        this application is being made for
+                        arbitrary mombile devices, it needs to be able to work on a myriad of aspect ratios and pixel
+                        densities. I found that Unity's scaling
+                        system was lacking, so I implemented my own additional tool that added more flexibility to the
+                        components - specifically the ability
+                        to reference either screen height or width based on their size - sort of like CSS minmax.
+                        Really, most of what I implemented UI design wise was to
+                        make the experience similar to using CSS.
+                    </p>
+                    <p>
+                        At this point, I had two major developments. Firstly was a main menu that could hold an
+                        arbitrary number of simulations. When a user selected
+                        a simulation from this menu, it would instantiate itself and switch to the AR view. This AR view
+                        is the second development.
+                        It had a primitive graph display at the top where the user could cycle through the different
+                        types ofgraphs available for the simulation they had chosen. Below is both the main menu and the AR view.
+                    </p>
+                    <div class="simulation_examples">
+                        <img src="imgs\week_two\simulation_examples\MainMenuScroll.gif" alt="">
+                        <img src="imgs\week_two\simulation_examples\EnergyDemo.gif" alt="">
+                    </div>
+                    <p>
+                        This update may appear to have less content than the prior, but in terms of hours invested, they're on par
+                        with one another. It took a lot of experimentation and interation to make my custom UI scaling components,
+                        but it was well worth the effort. In future updates, they were integral to making the layout as responsive
+                        as I needed it to be.
+                    </p>
+                </div>
+
+                <hr class='dotted' />
+
+                <div class="update update_three">
+                    <h3>Update Three</h3>
+                    <p>
+                        Now that I had functional simulations and a basic user interface, it was time to start implementing the 
+                        augmented reality portion of the application. This meant using the Vuforia SDK within Unity, which overall
+                        was an easy experience. After setting up the Vuforia SDK as per their developer guides, I was able to set tracking
+                        to ground plane and spawn some test objects. This was a huge milestone for me, as now I had an actual augmented reality 
+                        application with the core of the necessary logic. 
+                    </p>
+                    <p>
+                        Beyond building to mobile devices and actually implemented AR into the application, I also redesigned the main menu to be a bit
+                        more device friendly. I also began work on the control panel, which will evolve into the way the user interacts with the simulations.
+                        At this stage, the control panel simply listed adjustable variables and allowed for the user to slect a vlaue via a clamped slider.
+                    </p>
+                    <div class="simulation_examples">
+                        <img src="imgs\week_three\simulation_examples\controlpanel.gif" alt="">
+                        <img src="imgs\week_three\simulation_examples\MenuDemo.gif" alt="">
+                    </div>
+                    <p>
+                        Perhaps the most important thing is this update was the implementation of posing the siimulation. This includes: position, translation,
+                        rotation, and scale. This means that the user has full control over where and to what scale the simulation is shown in the real world.
+                        Below are two videos showing the different abilities. Teh third video demonstrates object permanence.
+                    </p>
+                    <div class="simulation_examples" style="height: 50vh;">
+                        <div>
+                            <video controls muted>
+                                <source src="imgs\week_three\videos\Placementcropped.m4v" type="video/mp4">
+                            Your browser does not support the video tag.
+                            </video> 
+                        </div>
+                        <div>
+                            <video controls muted>
+                                <source src="imgs\week_three\videos\TranRotScaleCompressed.m4v" type="video/mp4">
+                            Your browser does not support the video tag.
+                            </video> 
+                        </div>
+                        <div>
+                            <video controls muted>
+                                <source src="imgs\week_three\videos\ObjectPermanenceCompressed.m4v" type="video/mp4">
+                            Your browser does not support the video tag.
+                            </video> 
+                        </div>
+                    </div>
+                    <p>
+                        The biggest setback for this update was dealing with touch controls, specifically filtering taps over UI elements. It took some experimenting to
+                        work as envisioned, but now eveything runs smoothly.
+                    </p>
+                </div>
+
+                <hr class='dotted' />
+
+                <div class="update update_four">
+                    <h3>Update Four</h3>
+                    <p>
+                        This final update focused on making a better graph view. The previous graph view and graph mesh were lacking in visibility and context,
+                        so I completely overhauled the entire graph making and displaying system. Everything shown is rendered as part of Unity's UI class,
+                        meaning that it is both performant and compliant with the UI scaling. It took several iterations to get to this point, and its has further to go,
+                        but it is serviceable in its current condition. At this moment, the graph display shows line graphs for each tracked variable, options to enable/disable
+                        multiple variables, and automatic bounding box sizing for the graph. The graph menu & variable manipulation is shown below.
+                    </p>
+                    <p>
+                        A simpler, but still important change is the new 'top bar' where the primitive graph display was previously located. Now, it displays a toggle for the graph
+                        and houses the back button to return to the main menu. This is also shown below.
+                    </p>
+
+                    <div class="simulation_examples" style="height: 50vh;">
+                        <div>
+                            <video controls muted>
+                                <source src="imgs\week_four\videos\PlayAndGraphCompressed.m4v" type="video/mp4">
+                            Your browser does not support the video tag.
+                            </video> 
+                        </div>
+                    </div>
+                    <p>
+                        For SURE 2022, this is as far as I was able to go with my project. I plan on continuing my work, gathering data, and drawing conclusions.
+                        I've left many details out of these updates, so if you have any questions/comments please email me at maddy15@marshall.edu. Thank you for reading!
+                    </p>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="resource">
+                <h2>Resources</h2>
+                <div class="resources_links">
+                    <a href="https://unity.com/">
+                        <img alt="Unity 3D" src="imgs\logos\unity_logo.png">
+                    </a>
+                    <a href="https://www.ptc.com/en/products/vuforia">
+                        <img alt="Vuforia" src="imgs\logos\vuforia_logo.png">
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
