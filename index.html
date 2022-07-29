@@ -113,12 +113,12 @@
                     <p>
                         The second update focused on the user interface, primarily the concept of reactive design. As
                         this application is being made for
-                        arbitrary mombile devices, it needs to be able to work on a myriad of aspect ratios and pixel
+                        arbitrary mobile devices, it needs to be able to work on a myriad of aspect ratios and pixel
                         densities. I found that Unity's scaling
                         system was lacking, so I implemented my own additional tool that added more flexibility to the
                         components - specifically the ability
                         to reference either screen height or width based on their size - sort of like CSS minmax.
-                        Really, most of what I implemented UI design wise was to
+                        Really, most of what I implemented UI design-wise was to
                         make the experience similar to using CSS.
                     </p>
                     <p>
@@ -127,7 +127,7 @@
                         a simulation from this menu, it would instantiate itself and switch to the AR view. This AR view
                         is the second development.
                         It had a primitive graph display at the top where the user could cycle through the different
-                        types ofgraphs available for the simulation they had chosen. Below is both the main menu and the AR view.
+                        types of graphs available for the simulation they had chosen. Below is both the main menu and the AR view.
                     </p>
                     <div class="simulation_examples">
                         <img src="imgs\week_two\simulation_examples\MainMenuScroll.gif" alt="">
@@ -153,18 +153,18 @@
                         application with the core of the necessary logic. 
                     </p>
                     <p>
-                        Beyond building to mobile devices and actually implemented AR into the application, I also redesigned the main menu to be a bit
+                        Beyond building to mobile devices and having actually implemented AR into the application, I also redesigned the main menu to be a bit
                         more device friendly. I also began work on the control panel, which will evolve into the way the user interacts with the simulations.
-                        At this stage, the control panel simply listed adjustable variables and allowed for the user to slect a vlaue via a clamped slider.
+                        At this stage, the control panel simply listed adjustable variables and allowed for the user to select a value via a clamped slider.
                     </p>
                     <div class="simulation_examples">
                         <img src="imgs\week_three\simulation_examples\controlpanel.gif" alt="">
                         <img src="imgs\week_three\simulation_examples\MenuDemo.gif" alt="">
                     </div>
                     <p>
-                        Perhaps the most important thing is this update was the implementation of posing the siimulation. This includes: position, translation,
+                        Perhaps the most important thing is this update was the implementation of posing the simulation. This includes: position, translation,
                         rotation, and scale. This means that the user has full control over where and to what scale the simulation is shown in the real world.
-                        Below are two videos showing the different abilities. Teh third video demonstrates object permanence.
+                        Below are two videos showing the different abilities. The third video demonstrates object permanence.
                     </p>
                     <div class="simulation_examples" style="height: 50vh;">
                         <div>
@@ -199,7 +199,7 @@
                     <p>
                         This final update focused on making a better graph view. The previous graph view and graph mesh were lacking in visibility and context,
                         so I completely overhauled the entire graph making and displaying system. Everything shown is rendered as part of Unity's UI class,
-                        meaning that it is both performant and compliant with the UI scaling. It took several iterations to get to this point, and its has further to go,
+                        meaning that it is both performant and compliant with the UI scaling. It took several iterations to get to this point, and it has further to go,
                         but it is serviceable in its current condition. At this moment, the graph display shows line graphs for each tracked variable, options to enable/disable
                         multiple variables, and automatic bounding box sizing for the graph. The graph menu & variable manipulation is shown below.
                     </p>
